@@ -6,7 +6,6 @@ function CatFacts() {
 
     useEffect(() => {
         fetchData();
-
     }, [])
 
     const fetchData = async () => {
