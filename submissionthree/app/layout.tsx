@@ -18,9 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/catfacts">Catfacts</Link>
+        <nav className="p-2 space-x-4 flex flex-wrap">
+          <Link className="text-xl font-bold" href="/">Home</Link>
+          <Link className="text-xl font-bold" href="/bored">Bored</Link>
+          <Link className="text-xl font-bold" href="/catfacts">Catfacts</Link>
+          <Link className="text-xl font-bold" href="/catpics">Catpics</Link>
+          <Link className="text-xl font-bold" href="/coinbase">Coinbase</Link>
+          <Link className="text-xl font-bold" href="/lyrics">Lyrics</Link>
         </nav>
         <main>{children}</main>
       </body>

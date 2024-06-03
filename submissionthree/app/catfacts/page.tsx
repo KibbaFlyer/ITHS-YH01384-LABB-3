@@ -22,10 +22,12 @@ function CatFacts() {
         }
     };
     return (
-        <>
-            <pre>{fact}</pre>
-            <button onClick={fetchData}>Get more facts</button>
-        </>
+        <div className="p-2 text-center">
+            <div className="flex justify-center">
+                <p className="mb-5 text-wrap max-w-screen-lg">{fact}</p>
+            </div>
+            <button className="bg-orange-300 rounded p-2 motion-safe:animate-bounce" onClick={fetchData}>Get more facts</button>
+        </div>
 
     )
 }
