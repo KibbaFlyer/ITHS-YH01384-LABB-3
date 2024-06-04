@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 
 function CatFacts() {
-    const [fact, setFact] = useState();
+    const [fact, setFact] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -13,7 +13,6 @@ function CatFacts() {
             const response = await fetch("/api/catfacts");
             if (response) {
                 const data = await response.json();
-                console.log(data)
                 setFact(data.fact);
             }
         }
@@ -21,12 +20,13 @@ function CatFacts() {
             console.log(error);
         }
     };
+
     return (
         <div className="p-2 text-center">
-            <div className="flex justify-center">
+            {fact != "" && <><div className="flex justify-center">
                 <p className="mb-5 text-wrap max-w-screen-lg">{fact}</p>
             </div>
-            <button className="bg-orange-300 rounded p-2 motion-safe:animate-bounce" onClick={fetchData}>Get more facts</button>
+                <button className="bg-orange-300 rounded p-2 motion-safe:animate-bounce" onClick={fetchData}>Get more facts</button></>}
         </div>
 
     )
