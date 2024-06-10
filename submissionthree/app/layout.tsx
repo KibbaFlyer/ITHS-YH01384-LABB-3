@@ -23,7 +23,6 @@ export default function RootLayout({
           <Link className="text-xl font-bold" href="/bored">Bored</Link>
           <Link className="text-xl font-bold" href="/catfacts">Catfacts</Link>
           <Link className="text-xl font-bold" href="/dogpic">Dog pics</Link>
-          <Link className="text-xl font-bold" href="/spinnydoggos">Spinny Doggos</Link>
           <Link className="text-xl font-bold" href="/lyrics">Lyrics</Link>
         </nav>
         <main>{children}</main>

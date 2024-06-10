@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image';
+import SpinnyPics from '../components/spinnypics';
 
 function DogPic() {
   const [pic, setPic] = useState('')
@@ -23,8 +24,8 @@ function DogPic() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center text-center">
-      <Image width={700} height={700} src={pic} alt="Image of dog"></Image>
+    <div className="w-full flex items-center justify-center">
+      {pic && <SpinnyPics imageUrl={pic}/>}
     </div>
   )
 }
