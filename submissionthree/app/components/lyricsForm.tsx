@@ -15,10 +15,10 @@ function LyricsForm({ setParentLyrics }: { setParentLyrics: (lyrics: string) => 
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" name="artist" placeholder="Artist" className="text-black rounded p-2 ml-10" />
-            <input type="text" name="title" placeholder="Title" className="text-black rounded p2 ml-10" />
-            <button type="submit" className="bg-orange-300 rounded p-2 ml-10">Submit</button>
+        <form onSubmit={onSubmit} className="pt-16">
+            <input type="text" name="artist" placeholder="Artist" className="text-black rounded p-2 ml-10 shadow" />
+            <input type="text" name="title" placeholder="Title" className="text-black rounded p-2 ml-10 shadow" />
+            <button type="submit" className="bg-orange-300 rounded p-2 ml-10 shadow">Submit</button>
         </form>
     );
 }

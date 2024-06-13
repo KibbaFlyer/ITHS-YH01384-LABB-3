@@ -1,19 +1,28 @@
+import axios from 'axios';
+// The other APIs I have are made in Fetch, but after trying to mock them it seems very difficult. 
+// Therefore I have rewritten this in axios so that I can easier test it
+
 const useLyricsFetcher = () => {
 
     async function fetchLyrics(artist: string, title: string) {
         try {
-            const response = await fetch("/api/lyrics", {
-                method: 'POST',
+            const response = await axios.post("/api/lyrics", { artist, title }, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ artist, title }),
             });
-            if (!response.ok) throw new Error('Failed to fetch lyrics');
+            
+            if (response.status !== 200) throw new Error('Failed to fetch lyrics');
 
-            const data = await response.json();
+            const data = response.data;
             const firstRow = data.lyrics.split("\n")[0];
-            return data.lyrics.replace(firstRow, "");
+            // The API sometimes adds a first line, at least for Ed Sheeran's lyrics
+            // We're removing it here
+            if(firstRow.includes("Paroles de la chanson")) {
+                const cleaned = data.lyrics.replace(firstRow, "")
+                return cleaned
+            }
+            return data.lyrics;
         } catch (error) {
             console.error(error);
             throw error;

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, FormEvent } from 'react'
+import React, { useState } from 'react'
 import LyricsForm from '../components/lyricsForm'
 import LyricsDisplay from '../components/lyricsDisplay'
 
@@ -7,7 +7,7 @@ function Lyrics() {
     const [lyrics, setLyrics] = useState("");
 
     return (
-        <div className="container">
+        <div className="flex flex-col justify-center text-center">
             <LyricsForm setParentLyrics={setLyrics} />
             <LyricsDisplay parentLyrics={lyrics} />
         </div>

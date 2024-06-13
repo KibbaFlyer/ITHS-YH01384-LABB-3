@@ -3,9 +3,9 @@ import React from 'react';
 function LyricsDisplay({ parentLyrics } : { parentLyrics : string}) {
 
     return (
-        <div className="m-96 text-wrap text-center">
+        <div className="p-10 w-fill" >
             {parentLyrics.split("\n").map((line, index) => (
-                <p key={index}>{line}</p>
+                <p data-testid="lyrics-display" key={index}>{line}</p>
             ))}
         </div>
     );
