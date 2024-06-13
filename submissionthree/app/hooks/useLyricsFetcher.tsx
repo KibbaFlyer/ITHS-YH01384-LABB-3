@@ -11,14 +11,17 @@ const useLyricsFetcher = () => {
                     'Content-Type': 'application/json',
                 },
             });
-            
-            if (response.status !== 200) throw new Error('Failed to fetch lyrics');
+            console.log(response)
+            if (response.status !== 200 || !response.data.lyrics) {
+                alert('Failed to fetch lyrics - Please double check the spelling')
+                throw new Error('Failed to fetch lyrics');
+            }
 
             const data = response.data;
             const firstRow = data.lyrics.split("\n")[0];
             // The API sometimes adds a first line, at least for Ed Sheeran's lyrics
             // We're removing it here
-            if(firstRow.includes("Paroles de la chanson")) {
+            if (firstRow.includes("Paroles de la chanson")) {
                 const cleaned = data.lyrics.replace(firstRow, "")
                 return cleaned
             }
