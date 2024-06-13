@@ -9,6 +9,8 @@ export async function GET() {
     const obj: boredObj = { "activity": "Pushups", "type":"Excercise","participants": Math.floor(Math.random() * 100), "price": "free","link": "https://www.google.com"}
     return NextResponse.json(obj);
   } catch (err) {
-    console.log(err);
+    return new NextResponse("An error occurred while fetching the data.", {
+      status: 500,
+    });
   }
 }

@@ -5,6 +5,8 @@ export async function GET() {
     const data = await response.json();
     return NextResponse.json(data);
   } catch (err) {
-    console.log(err);
+    return new NextResponse("An error occurred while fetching the data.", {
+      status: 500,
+    });
   }
 }
