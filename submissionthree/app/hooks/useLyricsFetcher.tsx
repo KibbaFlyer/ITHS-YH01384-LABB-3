@@ -11,7 +11,7 @@ const useLyricsFetcher = () => {
                     'Content-Type': 'application/json',
                 },
             });
-            console.log(response)
+            
             if (response.status !== 200 || !response.data.lyrics) {
                 alert('Failed to fetch lyrics - Please double check the spelling')
                 throw new Error('Failed to fetch lyrics');
